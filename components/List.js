@@ -8,7 +8,7 @@ function List({ movies }) {
         <AddForm />
         <div className="border border-gray-200 rounded-lg">
           {movies.map((movie) => (
-            <Movies key={movie.id} movie={movie} />
+            <Movies key={movie._id} movie={movie} />
           ))}
         </div>
       </div>
