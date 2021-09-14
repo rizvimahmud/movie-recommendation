@@ -1,7 +1,8 @@
 import useSWR from "swr";
+import dynamic from "next/dynamic";
 import Container from "../components/Container";
-import Header from "../components/Header";
 import List from "../components/List";
+const Header = dynamic(() => import("../components/Header"), { ssr: false });
 
 import connect from "../mongodb/mongoConnect";
 
@@ -12,12 +13,12 @@ async function fetcher(url) {
 }
 
 export default function Home({ movieList }) {
-  const { data: movies } = useSWR("/api/movies/get-movies", fetcher, {
+  const { data: movies } = useSWR("/api/get-movies", fetcher, {
     fallbackData: movieList,
   });
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 antialiased dark:bg-gray-800">
       <Container>
         <Header />
         <List movies={movies} />

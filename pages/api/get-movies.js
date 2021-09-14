@@ -1,4 +1,4 @@
-import connect from "../../../mongodb/mongoConnect";
+import connect from "../../mongodb/mongoConnect";
 
 export default async function handler(_, res) {
   try {
@@ -6,7 +6,7 @@ export default async function handler(_, res) {
     const movies = await db
       .collection("movies")
       .find({})
-      .sort({ likes: 1 })
+      .sort({ likes: -1 })
       .toArray();
 
     res.status(200);

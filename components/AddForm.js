@@ -17,7 +17,7 @@ function AddForm() {
       };
 
       mutate(
-        "/api/movies/get-movies",
+        "/api/get-movies",
         async (movies) => {
           console.log(movies);
           return [...movies, { ...movie, _id: 1231245 }];
@@ -42,7 +42,7 @@ function AddForm() {
   return (
     <div className="py-6">
       <div className="w-full">
-        <form className="flex justify-between items-center space-x-3 w-full h-12 bg-gray-50 px-4 py-3 rounded-md border border-gray-200">
+        <form className="flex justify-between items-center space-x-3 w-full h-12 bg-gray-50 dark:bg-gray-700  px-4 py-3 rounded-md border border-gray-200 dark:border-gray-500">
           <input
             type="text"
             placeholder="Movie name..."
@@ -50,11 +50,11 @@ function AddForm() {
             required
             autoComplete="false"
             onChange={(e) => setMovieName(e.target.value)}
-            className="flex-1 appearance-none border-0 ring-0 outline-none group bg-gray-50 text-gray-900"
+            className="flex-1 appearance-none border-0 ring-0 outline-none group bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
           />
           <button
             onClick={handleSubmit}
-            className="px-6 xs:px-4  py-[6px] bg-gray-700 rounded-md text-white hover:bg-gray-900 active:bg-gray-500"
+            className="px-6 xs:px-4  py-[6px] bg-gray-700 rounded-md font-medium uppercase text-white dark:text-black hover:bg-gray-900 dark:bg-gray-200 active:bg-gray-500"
           >
             Add
           </button>

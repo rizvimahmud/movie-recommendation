@@ -1,11 +1,48 @@
+import { useEffect, useState } from "react";
+import { mutate } from "swr";
+
 function Movies({ movie }) {
+  const [disabled, setDisabled] = useState(false);
+  const { _id } = movie;
+
+  const handleUpdate = async () => {
+    try {
+      mutate(
+        "/api/get-movies",
+        async (movies) => {
+          const updatedMovie = movies.find((movie) => movie._id === _id);
+          updatedMovie.likes = updatedMovie.likes++;
+        },
+        false
+      );
+
+      await fetch("/api/movies/update", {
+        method: "POST",
+        body: JSON.stringify({ id: _id }),
+      });
+
+      mutate("/api/get-movies");
+      localStorage.setItem("disabled", true);
+
+      setDisabled(true);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
-    <div className="w-full p-6 border-t border-gray-200 first-of-type:border-none">
+    <div className="w-full p-6 border-t border-gray-200 dark:border-gray-500 first-of-type:border-none">
       <div className="flex justify-between items-center space-x-3">
-        <button className="flex justify-center items-center  p-2 bg-gray-200 rounded-full hover:bg-gray-300 active:bg-gray-100 active:ring-inset active:ring-[1px] active:ring-blue-300">
+        <button
+          className={`flex justify-center items-center  p-2 bg-gray-200 dark:bg-gray-600 rounded-full hover:bg-gray-300 dark:hover:bg-gray-800 active:bg-gray-100 active:ring-inset active:ring-[1px] active:ring-blue-300 dark:active:ring-gray-100 ${
+            disabled ? "disabled:bg-blue-300 dark:disabled:bg-gray-400" : ""
+          }`}
+          onClick={handleUpdate}
+          disabled={disabled}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
+            className="h-4 w-4 dark:text-gray-100"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -13,8 +50,10 @@ function Movies({ movie }) {
           </svg>
         </button>
 
-        <h3 className="flex-1 text-gray-800 font-medium">{movie.title}</h3>
-        <span className="px-2 py-1 bg-gray-200 rounded-xl text-sm">
+        <h3 className="flex-1 text-gray-800 dark:text-gray-100 font-medium">
+          {movie.title}
+        </h3>
+        <span className="px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded-xl text-sm dark:text-gray-100">
           {movie.likes}
         </span>
       </div>
