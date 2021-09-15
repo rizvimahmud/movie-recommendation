@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className="relative py-2 mb-4">
       <div className=" my-8 text-center">
-        <h1 className="py-4 text-3xl font-bold text-black dark:text-gray-50">
+        <h1 className="py-4 text-3xl font-bold text-black capitalize dark:text-gray-50">
           Recommend movies
         </h1>
         <p className="text-xl text-gray-800 dark:text-gray-200">
@@ -13,7 +13,7 @@ function Header() {
         </p>
       </div>
       <button
-        className="absolute top-0 xs:right-2 right-0  p-2 bg-gray-200 dark:bg-gray-500 rounded-lg outline-none focus:ring-2 focus:ring-blue-300"
+        className="absolute top-0 xs:right-2 right-0  p-2 bg-gray-200 dark:bg-gray-500 rounded-lg outline-none"
         onClick={toggleTheme}
       >
         {theme === "dark" ? (

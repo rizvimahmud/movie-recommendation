@@ -1,4 +1,4 @@
-import connect from "../../mongodb/mongoConnect";
+import connect from "../../../mongodb/mongoConnect";
 
 export default async function handler(_, res) {
   try {

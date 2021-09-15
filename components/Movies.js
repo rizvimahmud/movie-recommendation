@@ -8,7 +8,7 @@ function Movies({ movie }) {
   const handleUpdate = async () => {
     try {
       mutate(
-        "/api/get-movies",
+        "/api/movies/get-movies",
         async (movies) => {
           const updatedMovie = movies.find((movie) => movie._id === _id);
           updatedMovie.likes = updatedMovie.likes++;
@@ -21,8 +21,7 @@ function Movies({ movie }) {
         body: JSON.stringify({ id: _id }),
       });
 
-      mutate("/api/get-movies");
-      localStorage.setItem("disabled", true);
+      mutate("/api/movies/get-movies");
 
       setDisabled(true);
     } catch (err) {
