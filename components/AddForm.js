@@ -52,7 +52,7 @@ function AddForm() {
   return (
     <div className="py-6">
       <div className="w-full">
-        <form className="flex justify-between items-center space-x-3 w-full h-12 bg-gray-50 dark:bg-gray-700  px-4 py-3 rounded-md border border-gray-200 dark:border-gray-500">
+        <form className="flex justify-between items-center space-x-1 sm:space-x-3 w-full h-12 bg-gray-50 dark:bg-gray-700  px-2 sm:px-4 py-3 rounded-md border border-gray-200 dark:border-gray-500">
           <input
             type="text"
             placeholder="Movie name..."
@@ -61,12 +61,12 @@ function AddForm() {
             autoComplete="false"
             value={movieName}
             onChange={(e) => setMovieName(e.target.value)}
-            className="flex-1 appearance-none border-0 ring-0 outline-none group bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+            className="flex-1 appearance-none border-0 ring-0 outline-none  bg-gray-50 dark:bg-gray-700 text-gray-900 text-sm sm:text-base dark:text-gray-100"
           />
           <button
             type="submit"
             onClick={handleSubmit}
-            className="px-6 sm:px-4 xs:px-4  py-[6px] bg-gray-700 rounded-md font-medium uppercase text-white dark:text-black hover:bg-gray-900 dark:bg-gray-200 active:bg-gray-500 disabled:bg-gray-400"
+            className="px-2 sm:px-6 py-[6px] bg-gray-700 rounded-md font-medium uppercase text-sm sm:text-base text-white dark:text-black hover:bg-gray-900 dark:bg-gray-200 active:bg-gray-500 disabled:bg-gray-400"
           >
             Add
           </button>
