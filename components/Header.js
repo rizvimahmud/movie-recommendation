@@ -13,7 +13,7 @@ function Header() {
         </p>
       </div>
       <button
-        className="absolute top-0 xs:right-2 right-0  p-2 bg-gray-200 dark:bg-gray-500 rounded-lg outline-none"
+        className="absolute top-0 xs:right-4 right-0  p-2 bg-gray-200 dark:bg-gray-500 rounded-lg outline-none"
         onClick={toggleTheme}
       >
         {theme === "dark" ? (

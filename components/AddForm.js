@@ -66,7 +66,7 @@ function AddForm() {
           <button
             type="submit"
             onClick={handleSubmit}
-            className="px-6 xs:px-4  py-[6px] bg-gray-700 rounded-md font-medium uppercase text-white dark:text-black hover:bg-gray-900 dark:bg-gray-200 active:bg-gray-500 disabled:bg-gray-400"
+            className="px-6 sm:px-4 xs:px-4  py-[6px] bg-gray-700 rounded-md font-medium uppercase text-white dark:text-black hover:bg-gray-900 dark:bg-gray-200 active:bg-gray-500 disabled:bg-gray-400"
           >
             Add
           </button>
