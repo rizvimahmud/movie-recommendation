@@ -36,16 +36,17 @@ function AddForm() {
         "Content-Type": "application/json",
         body: JSON.stringify({ ...movie }),
       });
+      const data = await response.json();
 
       response.ok
         ? toast.success("Successfully added your movie")
-        : toast.error("Failed to add movie");
+        : toast.error(data?.error ?? "Failed to add your movie");
 
       mutate("/api/movies/get-movies");
 
       setMovieName("");
     } catch (err) {
-      console.log(err.message);
+      toast.error("An unexpected error occured");
     }
   };
 

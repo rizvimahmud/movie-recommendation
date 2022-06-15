@@ -25,7 +25,7 @@ function Movies({ movie }) {
 
       setDisabled(true);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
